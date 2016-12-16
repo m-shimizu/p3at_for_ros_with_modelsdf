@@ -12,11 +12,20 @@ Yes, the model.sdf is including gazebo_ros libraries.
     $ catkin_init_workspace  
     $ cd ..  
     $ catkin_make  
-    $ source setup.bash  
     
 ## How to use this program.  
-    $ cd p3at_for_ros_with_modelsdf
+You need 2 terminals for spawning a robot and controlling the robot.
+
+    Terminal 1(To spawn a robot):  
+
+    $ cd p3at_for_ros_with_modelsdf  
     $ source setup.bash  
-    $ roslaunch .....  
+    $ roslaunch gazebo_ros_sdf empty.launch  
+    (Then spawn a robot "pioneer3at_ros" from "INSERT TAB")
     
-    
+    Terminal 2(To control the robot):  
+
+    $ rostopic list
+    $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/pioneer3at_ros/cmd_vel
+
+UPDATED : 16/12/2016
