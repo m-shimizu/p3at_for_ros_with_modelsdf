@@ -50,12 +50,12 @@ execute_process(COMMAND
 
 catkin_python_setup()
 
-generate_dynamic_reconfigure_options(
-  cfg/CameraSynchronizer.cfg
-  cfg/GazeboRosCamera.cfg
-  cfg/GazeboRosOpenniKinect.cfg
-  cfg/Hokuyo.cfg
-)
+#generate_dynamic_reconfigure_options(
+#  cfg/CameraSynchronizer.cfg
+#  cfg/GazeboRosCamera.cfg
+#  cfg/GazeboRosOpenniKinect.cfg
+#  cfg/Hokuyo.cfg
+#)
 
 include_directories(include
   ${Boost_INCLUDE_DIRS}
@@ -141,7 +141,7 @@ catkin_package(
     gazebo 
     SDF
   )
-add_dependencies(${PROJECT_NAME}_gencfg ${catkin_EXPORTED_TARGETS})
+#add_dependencies(${PROJECT_NAME}_gencfg ${catkin_EXPORTED_TARGETS})
 
 #add_library(gazebo_ros_force src/gazebo_ros_force.cpp)
 #target_link_libraries(gazebo_ros_force ${GAZEBO_LIBRARIES} ${catkin_LIBRARIES} ${Boost_LIBRARIES})
