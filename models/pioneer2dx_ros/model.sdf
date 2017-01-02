@@ -193,7 +193,7 @@
       <broadcastTF>true</broadcastTF>
     </plugin>
 
-    <!--
+    <!-- Original libDiffDrivePlugin for sample
     <plugin filename="libDiffDrivePlugin_rc2016.so" name="diff_drive">
       <left_joint>left_wheel_hinge</left_joint>
       <right_joint>right_wheel_hinge</right_joint>
@@ -201,15 +201,74 @@
     </plugin>
     -->
 
+
 <!-- Camera (hight is 100mm) -->
-    <include>
-      <name>camera</name>
+    <link name="camera_ros_link">
       <pose>0.1 0 0.383 0 0 0</pose>
-      <uri>model://camera_ros</uri>
-    </include>
+      <inertial>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.000166667</ixx>
+          <iyy>0.000166667</iyy>
+          <izz>0.000166667</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>0.1 0.1 0.1</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>0.1 0.1 0.1</size>
+          </box>
+        </geometry>
+      </visual>
+      <sensor type="camera" name="camera_ros">
+        <update_rate>20</update_rate>
+        <camera name="camera_ros">
+          <horizontal_fov>1.047</horizontal_fov>
+          <image>
+            <width>320</width>
+            <height>240</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>100</far>
+          </clip>
+     <!-- Noise is sampled independently per pixel on each frame.
+          That pixel's noise value is added to each of its color
+          channels, which at that point lie in the range [0,1]. -->
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+-->
+        </camera>
+        <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+          <alwaysOn>true</alwaysOn>
+          <updateRate>0.0</updateRate>
+          <cameraName>/pioneer2dx_ros/camera_ros</cameraName>
+          <imageTopicName>image</imageTopicName>
+          <cameraInfoTopicName>camera_ros_info</cameraInfoTopicName>
+          <frameName>camera_ros_link</frameName>
+          <hackBaseline>0.07</hackBaseline>
+          <distortionK1>0.0</distortionK1>
+          <distortionK2>0.0</distortionK2>
+          <distortionK3>0.0</distortionK3>
+          <distortionT1>0.0</distortionT1>
+          <distortionT2>0.0</distortionT2>
+        </plugin>
+      </sensor>
+    </link>
     <joint name="camera_joint" type="revolute">
       <parent>chassis</parent>
-      <child>camera::camera_ros_link</child>
+      <child>camera_ros_link</child>
       <pose>0 0 0 0 0 0</pose>
       <axis>
         <xyz>0.000000 0.000000 1.000000</xyz>
@@ -220,12 +279,66 @@
       </axis>
     </joint>
 
+
 <!-- Hokuyo (hight is 70mm) -->
-    <include>
-      <name>hokuyo</name>
+    <link name="hokuyo_ros_link">
       <pose>0.1 0 0.298 0 0 0</pose>
-      <uri>model://hokuyo_ros</uri>
-    </include>
+      <inertial>
+        <mass>0.1</mass>
+      </inertial>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://hokuyo_ros/meshes/hokuyo.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="collision-base">
+        <pose>0 0 -0.0145 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.041</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="collision-top">
+        <pose>0 0 0.0205 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.021</radius>
+            <length>0.029</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <sensor type="ray" name="lms200">
+        <always_on>true</always_on>
+        <update_rate>30</update_rate>
+        <pose>0 0 0 0 0 0</pose>
+        <visualize>false</visualize>
+        <ray>
+          <scan>
+            <horizontal>
+            <samples>181</samples>
+            <resolution>1</resolution>
+            <min_angle>-1.570796</min_angle>
+            <max_angle>1.570796</max_angle>
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>30.0</max>
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+        <plugin name="gazebo_ros_hokuyo_controller" filename="libgazebo_ros_laser.so">
+          <gaussianNoise>0.005</gaussianNoise>
+          <alwaysOn>true</alwaysOn>
+          <updateRate>30</updateRate>
+          <topicName>/pioneer2dx_ros/scan</topicName>
+          <frameName>hokuyo_ros_link</frameName>
+        </plugin>
+      </sensor>
+    </link>
     <joint name="hokuyo_joint" type="revolute">
       <parent>chassis</parent>
       <child>hokuyo::hokuyo_ros_link</child>

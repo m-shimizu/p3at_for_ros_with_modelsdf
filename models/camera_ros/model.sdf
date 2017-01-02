@@ -53,7 +53,7 @@
       <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
         <alwaysOn>true</alwaysOn>
         <updateRate>0.0</updateRate>
-        <cameraName>camera_ros</cameraName>
+        <cameraName>/pioneer3at_ros/camera_ros</cameraName>
         <imageTopicName>image</imageTopicName>
         <cameraInfoTopicName>camera_ros_info</cameraInfoTopicName>
         <frameName>camera_ros_link</frameName>
@@ -86,4 +86,4 @@
 -->
     </link>
   </model>
-</sdf>S
+</sdf>
