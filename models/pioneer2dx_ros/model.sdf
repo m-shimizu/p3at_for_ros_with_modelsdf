@@ -341,7 +341,7 @@
     </link>
     <joint name="hokuyo_joint" type="revolute">
       <parent>chassis</parent>
-      <child>hokuyo::hokuyo_ros_link</child>
+      <child>hokuyo_ros_link</child>
       <pose>0 0 0 0 0 0</pose>
       <axis>
         <xyz>0.000000 0.000000 1.000000</xyz>
