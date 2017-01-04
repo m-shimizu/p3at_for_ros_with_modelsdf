@@ -239,8 +239,8 @@
     </joint>
 
     <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
-      <updateRate>100.0</updateRate>
       <robotNamespace>pioneer3at_ros</robotNamespace>
+      <updateRate>100.0</updateRate>
       <leftFrontJoint>left_front</leftFrontJoint>
       <rightFrontJoint>right_front</rightFrontJoint>
       <leftRearJoint>left_rear</leftRearJoint>
@@ -311,12 +311,12 @@
             <mean>0.0</mean>
             <stddev>0.007</stddev>
           </noise>
--->
         </camera>
         <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+          <robotNamespace>pioneer3at_ros</robotNamespace>
           <alwaysOn>true</alwaysOn>
           <updateRate>0.0</updateRate>
-          <cameraName>/pioneer3at_ros/camera_ros</cameraName>
+          <cameraName>camera_ros</cameraName>
           <imageTopicName>image</imageTopicName>
           <cameraInfoTopicName>camera_ros_info</cameraInfoTopicName>
           <frameName>camera_ros_link</frameName>
@@ -393,10 +393,11 @@
           </range>
         </ray>
         <plugin name="gazebo_ros_hokuyo_controller" filename="libgazebo_ros_laser.so">
+          <robotNamespace>pioneer3at_ros</robotNamespace>
           <gaussianNoise>0.005</gaussianNoise>
           <alwaysOn>true</alwaysOn>
           <updateRate>30</updateRate>
-          <topicName>/pioneer3at_ros/scan</topicName>
+          <topicName>scan</topicName>
           <frameName>hokuyo_ros_link</frameName>
         </plugin>
       </sensor>

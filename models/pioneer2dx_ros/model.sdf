@@ -174,9 +174,9 @@
     </joint>
 
     <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+      <robotNamespace>pioneer2dx_ros</robotNamespace>
       <alwaysOn>true</alwaysOn>
       <updateRate>100.0</updateRate>
-      <robotNamespace>pioneer2dx_ros</robotNamespace>
       <leftJoint>left_wheel_hinge</leftJoint>
       <rightJoint>right_wheel_hinge</rightJoint>
       <wheelSeparation>0.4</wheelSeparation>
@@ -248,12 +248,12 @@
             <mean>0.0</mean>
             <stddev>0.007</stddev>
           </noise>
--->
         </camera>
         <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+          <robotNamespace>pioneer2dx_ros</robotNamespace>
           <alwaysOn>true</alwaysOn>
           <updateRate>0.0</updateRate>
-          <cameraName>/pioneer2dx_ros/camera_ros</cameraName>
+          <cameraName>camera_ros</cameraName>
           <imageTopicName>image</imageTopicName>
           <cameraInfoTopicName>camera_ros_info</cameraInfoTopicName>
           <frameName>camera_ros_link</frameName>
@@ -331,10 +331,11 @@
           </range>
         </ray>
         <plugin name="gazebo_ros_hokuyo_controller" filename="libgazebo_ros_laser.so">
+          <robotNamespace>pioneer2dx_ros</robotNamespace>
           <gaussianNoise>0.005</gaussianNoise>
           <alwaysOn>true</alwaysOn>
           <updateRate>30</updateRate>
-          <topicName>/pioneer2dx_ros/scan</topicName>
+          <topicName>scan</topicName>
           <frameName>hokuyo_ros_link</frameName>
         </plugin>
       </sensor>
