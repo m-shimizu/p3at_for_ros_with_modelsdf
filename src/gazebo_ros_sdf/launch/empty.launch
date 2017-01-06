@@ -8,10 +8,14 @@
   <arg name="verbose" default="false"/>
   <arg name="world_name" default="empty.world"/>
 
-  <!-- Launch gazebo -->
+  <!-- Launch robot state publishers -->
 
   <include file="$(find gazebo_ros_sdf)/launch/make_robot_description_and_call_state_publisher.launch">
     <arg name="robot_name" value="pioneer3at_ros"/>
+  </include>
+
+  <include file="$(find gazebo_ros_sdf)/launch/make_robot_description_and_call_state_publisher.launch">
+    <arg name="robot_name" value="pioneer2dx_ros"/>
   </include>
 
   <!-- Launch gazebo -->

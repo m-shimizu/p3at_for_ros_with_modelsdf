@@ -336,7 +336,7 @@
           <alwaysOn>true</alwaysOn>
           <updateRate>30</updateRate>
           <topicName>scan</topicName>
-          <frameName>hokuyo_ros_link</frameName>
+          <frameName>hokuyo_frame</frameName>
         </plugin>
       </sensor>
     </link>
