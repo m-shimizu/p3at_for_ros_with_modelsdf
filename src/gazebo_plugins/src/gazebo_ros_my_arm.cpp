@@ -162,9 +162,75 @@ void GazeboRosMyArm::PID_Control(void)
   }
 }
 
+#include <termios.h>
+#include <fcntl.h>
+
+// To know pushing any key
+int	doslike_kbhit(void)
+{
+	struct termios	oldt, newt;
+	int	ch;
+	int	oldf;
+	tcgetattr(STDIN_FILENO, &oldt);
+	newt = oldt;
+	newt.c_lflag &= ~(BRKINT | ISTRIP | IXON);
+	newt.c_lflag &= ~(ICANON | ECHO | ECHOE | ECHOK | ECHONL);
+	tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+	oldf = fcntl(STDIN_FILENO, F_GETFL, 0);
+	fcntl(STDIN_FILENO, F_SETFL, oldf | O_NONBLOCK);
+	ch = getchar();
+	tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+	fcntl(STDIN_FILENO, F_SETFL, oldf);
+	if(ch != EOF)
+	{
+		ungetc(ch, stdin);
+		return 1;
+	}
+	return 0;
+}
+
+/////////////////////////////////////////////////
+// To gwt a charactor code of a pushed key
+int	doslike_getch(void)
+{
+	static struct termios	oldt, newt;
+	tcgetattr(STDIN_FILENO, &oldt);
+	newt = oldt;
+	newt.c_lflag &= ~(BRKINT | ISTRIP | IXON);
+	newt.c_lflag &= ~(ICANON | ECHO | ECHOE | ECHOK | ECHONL);
+	tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+	int c = getchar();
+	tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+	return c;
+}
+
+void	GazeboRosMyArm::check_key_command(void)
+{
+	if(doslike_kbhit())
+	{
+		int cmd = doslike_getch();
+		switch(cmd)
+		{
+			case 'q': Target_Angles_[SHOULDER] += 0.05;
+				  break;
+			case 'a': Target_Angles_[SHOULDER] -= 0.05;
+				  break;
+			case 'w': Target_Angles_[ELBOW] += 0.05;
+				  break;
+			case 's': Target_Angles_[ELBOW] -= 0.05;
+				  break;
+			case 'e': Target_Angles_[WRIST] += 0.05;
+				  break;
+			case 'd': Target_Angles_[WRIST] -= 0.05;
+				  break;
+		}
+	}
+}
+
 // Update the controller
 void GazeboRosMyArm::UpdateChild()
 {
+  check_key_command();
   PID_Control();
 }
 

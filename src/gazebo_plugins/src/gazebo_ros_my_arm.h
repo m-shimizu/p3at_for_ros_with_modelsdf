@@ -89,6 +89,7 @@ namespace gazebo {
 
     private:
       void PID_Control(void);
+      void check_key_command(void);
 
       GazeboRosPtr gazebo_ros_;
       physics::ModelPtr parent;
