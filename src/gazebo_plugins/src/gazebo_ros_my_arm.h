@@ -101,6 +101,8 @@ namespace gazebo {
 
       // ROS STUFF
       boost::mutex lock;
+      ros::Subscriber cmd_arm12_subscriber_;
+      ros::Subscriber cmd_hand12_subscriber_;
 
       std::string robot_namespace_;
       std::string command_topic1_;

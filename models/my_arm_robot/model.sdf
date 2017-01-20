@@ -310,10 +310,6 @@
       <rightJoint>right_wheel_hinge</rightJoint>
       <wheelSeparation>0.4</wheelSeparation>
       <wheelDiameter>0.215</wheelDiameter>
-<!-- Following 2lines were came from gazebosim gazebo_ros topic page.
-      <wheelSeparation>0.5380</wheelSeparation>
-      <wheelDiameter>0.2410</wheelDiameter>
--->
       <robotBaseFrame>chassis</robotBaseFrame>
       <torque>200</torque>
       <commandTopic>cmd_vel</commandTopic>
@@ -321,15 +317,18 @@
       <odometryFrame>odom</odometryFrame>
       <broadcastTF>true</broadcastTF>
     </plugin>
+
+<!-- Following 2lines were came from gazebosim gazebo_ros topic page.
+      <wheelSeparation>0.5380</wheelSeparation>
+      <wheelDiameter>0.2410</wheelDiameter>
+-->
       
     <plugin name="arm_controller" filename="libgazebo_ros_my_arm.so">
       <robotNamespace>my_arm_robot</robotNamespace>
       <alwaysOn>true</alwaysOn>
       <updateRate>100.0</updateRate>
-
       <commandTopic1>cmd_arm12</commandTopic1>
       <commandTopic2>cmd_hand12</commandTopic2>
-
       <shoulderYawJoint>arm1_hinge</shoulderYawJoint>
       <shoulderPitchJoint>arm2_hinge</shoulderPitchJoint>
       <finger1Joint>hand1_hinge</finger1Joint>
