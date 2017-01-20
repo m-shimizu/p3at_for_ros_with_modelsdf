@@ -225,7 +225,9 @@
         </visual>
       </link>
 
-   <joint type="revolute" name="left_wheel_hinge">
+<!-- =============================== JOINTS for WHEELS ====== -->
+
+     <joint type="revolute" name="left_wheel_hinge">
         <pose>0 0 -0.03 0 0 0</pose>
         <child>left_wheel</child>
         <parent>chassis</parent>
@@ -243,17 +245,7 @@
         </axis>
       </joint>
 
-
- <joint type="revolute" name="shoulder">
-        <pose>0 0 0.03 0 0 0</pose>
-        <child>right_wheel</child>
-        <parent>chassis</parent>
-        <axis>
-          <xyz>0 1 0</xyz>
-        </axis>
-      </joint>
-
-
+<!-- =============================== JOINTS for ARM ====== -->
 
       <joint type="revolute" name="arm1_hinge">
 	<pose>0 0 .15 0 0 0</pose>
@@ -335,9 +327,8 @@
       <alwaysOn>true</alwaysOn>
       <updateRate>100.0</updateRate>
 
-      <shoulderJoint>shoulder</shoulderJoint>
-      <elbowJoint>arm1_hinge</elbowJoint>
-      <wristJoint>arm2_hinge</wristJoint>
+      <shoulderYawJoint>arm1_hinge</shoulderYawJoint>
+      <shoulderPitchJoint>arm2_hinge</shoulderPitchJoint>
       <finger1Joint>hand1_hinge</finger1Joint>
       <finger2Joint>hand2_hinge</finger2Joint>
       <finger12Joint>hand1_2_hinge</finger12Joint>
