@@ -12,7 +12,7 @@
     <!-- A robot : my_robot -->
     <include>
       <pose>1 1 0.5 0 0 0</pose>
-      <uri>model://my_robot</uri>
+      <uri>model://my_arm_robot</uri>
     </include>
   </world>
 </sdf>
