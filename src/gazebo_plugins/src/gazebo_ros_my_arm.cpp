@@ -51,8 +51,6 @@
 #include <assert.h>
 
 enum {
-    RIGHT,
-    LEFT,
     SHOULDER,
     ELBOW,
     WRIST,
@@ -90,26 +88,35 @@ void GazeboRosMyArm::Load ( physics::ModelPtr _parent, sdf::ElementPtr _sdf )
 {
 
     this->parent = _parent;
-    gazebo_ros_ = GazeboRosPtr ( new GazeboRos ( _parent, _sdf, "MyArm" ) );
+    gazebo_ros_ = GazeboRosPtr ( new GazeboRos ( _parent, _sdf, "my_arm_robot" ) );
     // Make sure the ROS node for Gazebo has already been initialized
     gazebo_ros_->isInitialized();
 
+/*
     gazebo_ros_->getParameter<std::string> ( command_topic_, "commandTopic", "cmd_arm" );
 
     gazebo_ros_->getParameter<std::string> ( arm_shoulder_frame_, "ArmShoulderFrame", "ArmShoulderFrame" );
     gazebo_ros_->getParameter<std::string> ( arm_elbow_frame_,    "ArmElbowFrame",    "ArmElbowFrame" );
     gazebo_ros_->getParameter<std::string> ( arm_wrist_frame_,    "ArmWristFrame",    "ArmWristFrame" );
     gazebo_ros_->getParameter<std::string> ( arm_finger_frame_,   "ArmFingerFrame",   "ArmFingerFrame" );
+*/
 
-
+printf("AAAAAAA\n");
     joints_.resize ( JOINT_SIZE );
-    joints_[SHOULDER] = gazebo_ros_->getJoint ( parent, "shoulderJoint", "shouler_joint" );
+    joints_[SHOULDER] = gazebo_ros_->getJoint ( parent, "shoulderJoint", "shoulder_joint" );
+if(0==joints_[SHOULDER]) printf("Error getting joint: shoulderJoint\n");
     joints_[ELBOW]    = gazebo_ros_->getJoint ( parent, "elbowJoint", "elbow_joint" );
+if(0==joints_[ELBOW]) printf("Error getting joint: elbowJoint\n");
     joints_[WRIST]    = gazebo_ros_->getJoint ( parent, "wristJoint", "wrist_joint" );
+if(0==joints_[WRIST]) printf("Error getting joint: wristJoint\n");
     joints_[FINGER1]  = gazebo_ros_->getJoint ( parent, "finger1Joint", "finger1_joint" );
+if(0==joints_[FINGER1]) printf("Error getting joint: finger1Joint\n");
     joints_[FINGER2]  = gazebo_ros_->getJoint ( parent, "finger2Joint", "finger2_joint" );
+if(0==joints_[FINGER2]) printf("Error getting joint: finger2Joint\n");
     joints_[FINGER12] = gazebo_ros_->getJoint ( parent, "finger12Joint", "finger12_joint" );
+if(0==joints_[FINGER12]) printf("Error getting joint: finger12Joint\n");
     joints_[FINGER22] = gazebo_ros_->getJoint ( parent, "finger22Joint", "finger22_joint" );
+if(0==joints_[FINGER22]) printf("Error getting joint: finger22Joint\n");
 
     last_update_time_ = parent->GetWorld()->GetSimTime();
 
@@ -128,6 +135,7 @@ void GazeboRosMyArm::Load ( physics::ModelPtr _parent, sdf::ElementPtr _sdf )
     ROS_INFO("%s: Subscribe to %s!", gazebo_ros_->info(), command_topic_.c_str());
 */
 
+printf("BBBBBBBB\n");
 
     // start custom queue for diff drive
     this->callback_queue_thread_ =
@@ -150,7 +158,7 @@ void GazeboRosMyArm::PID_Control(void)
   for(int i = 0 ; i < JOINT_SIZE; i++)
   {
     Monitor_Angles_[i] = this->joints_[i]->GetAngle(0).Radian();
-//printf("Monitor Angle[%d] : %f\n", i, this->joints_[i]->GetAngle(0).Degree());
+  // printf("Monitor Angle[%d] : %f\n", i, this->joints_[i]->GetAngle(0).Degree());
 
   // Only Proportional Control in velocity
     orders_[i] = -10 * (Monitor_Angles_[i] - Target_Angles_[i]);
