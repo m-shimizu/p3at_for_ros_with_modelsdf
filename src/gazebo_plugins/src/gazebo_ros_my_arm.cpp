@@ -91,8 +91,9 @@ void GazeboRosMyArm::Load ( physics::ModelPtr _parent, sdf::ElementPtr _sdf )
     // Make sure the ROS node for Gazebo has already been initialized
     gazebo_ros_->isInitialized();
 
+    gazebo_ros_->getParameter<std::string> ( command_topic1_, "commandTopic1", "cmd_arm12" );
+    gazebo_ros_->getParameter<std::string> ( command_topic2_, "commandTopic2", "cmd_hand12" );
 /*
-    gazebo_ros_->getParameter<std::string> ( command_topic_, "commandTopic", "cmd_arm" );
 
     gazebo_ros_->getParameter<std::string> ( arm_shoulder_frame_, "ArmShoulderFrame", "ArmShoulderFrame" );
     gazebo_ros_->getParameter<std::string> ( arm_elbow_frame_,    "ArmElbowFrame",    "ArmElbowFrame" );
@@ -125,17 +126,24 @@ void GazeboRosMyArm::Load ( physics::ModelPtr _parent, sdf::ElementPtr _sdf )
     alive_ = true;
 
     // ROS: Subscribe to the velocity command topic (usually "cmd_vel")
-    ROS_INFO("%s: Try to subscribe to %s!", gazebo_ros_->info(), command_topic_.c_str());
-
-/*
-    ros::SubscribeOptions so =
-        ros::SubscribeOptions::create<geometry_msgs::Twist>(command_topic_, 1,
-                boost::bind(&GazeboRosMyArm::cmdVelCallback, this, _1),
+    ROS_INFO("%s: Try to subscribe to %s!", gazebo_ros_->info(), command_topic1_.c_str());
+    ros::SubscribeOptions so1 =
+        ros::SubscribeOptions::create<geometry_msgs::Twist>(command_topic1_, 1,
+                boost::bind(&GazeboRosMyArm::cmdarm12_Callback, this, _1),
                 ros::VoidPtr(), &queue_);
+//    cmd_vel_subscriber_ = 
+    gazebo_ros_->node()->subscribe(so1);
+    ROS_INFO("%s: Subscribe to %s!", gazebo_ros_->info(), command_topic1_.c_str());
 
-    cmd_vel_subscriber_ = gazebo_ros_->node()->subscribe(so);
-    ROS_INFO("%s: Subscribe to %s!", gazebo_ros_->info(), command_topic_.c_str());
-*/
+    ROS_INFO("%s: Try to subscribe to %s!", gazebo_ros_->info(), command_topic2_.c_str());
+    ros::SubscribeOptions so2 =
+        ros::SubscribeOptions::create<geometry_msgs::Twist>(command_topic2_, 1,
+                boost::bind(&GazeboRosMyArm::cmdhand12_Callback, this, _1),
+                ros::VoidPtr(), &queue_);
+//    cmd_vel_subscriber_ = 
+    gazebo_ros_->node()->subscribe(so2);
+    ROS_INFO("%s: Subscribe to %s!", gazebo_ros_->info(), command_topic2_.c_str());
+
 
     // start custom queue for diff drive
     this->callback_queue_thread_ =
@@ -252,14 +260,23 @@ void GazeboRosMyArm::FiniChild()
     callback_queue_thread_.join();
 }
 
-/*
-void GazeboRosMyArm::cmdVelCallback ( const geometry_msgs::Twist::ConstPtr& cmd_msg )
+void GazeboRosMyArm::cmdarm12_Callback ( const geometry_msgs::Twist::ConstPtr& cmd_msg )
 {
+/*
     boost::mutex::scoped_lock scoped_lock ( lock );
     x_ = cmd_msg->linear.x;
     rot_ = cmd_msg->angular.z;
-}
 */
+}
+
+void GazeboRosMyArm::cmdhand12_Callback ( const geometry_msgs::Twist::ConstPtr& cmd_msg )
+{
+/*
+    boost::mutex::scoped_lock scoped_lock ( lock );
+    x_ = cmd_msg->linear.x;
+    rot_ = cmd_msg->angular.z;
+*/
+}
 
 void GazeboRosMyArm::QueueThread()
 {

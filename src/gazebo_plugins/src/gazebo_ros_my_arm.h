@@ -103,7 +103,8 @@ namespace gazebo {
       boost::mutex lock;
 
       std::string robot_namespace_;
-      std::string command_topic_;
+      std::string command_topic1_;
+      std::string command_topic2_;
 
       std::string arm_shoulder_frame_;
       std::string arm_elbow_frame_;
@@ -115,8 +116,9 @@ namespace gazebo {
       boost::thread callback_queue_thread_;
       void QueueThread();
 
-      // DiffDrive stuff
-//    void cmdVelCallback(const geometry_msgs::Twist::ConstPtr& cmd_msg);
+      // Callback stuff
+      void cmdarm12_Callback(const geometry_msgs::Twist::ConstPtr& cmd_msg);
+      void cmdhand12_Callback(const geometry_msgs::Twist::ConstPtr& cmd_msg);
 
       bool alive_;
 
