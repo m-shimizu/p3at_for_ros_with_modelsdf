@@ -290,6 +290,39 @@
           </box>
         </geometry>
       </visual>
+<!-- THERMAL CAMERA --> 
+      <sensor type="camera" name="thermal_camera_sensor">
+        <update_rate>10</update_rate>
+        <camera name="camera_ros_thermal">
+          <horizontal_fov>1.047</horizontal_fov>
+          <image>
+            <width>160</width>
+            <height>120</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.01</near>
+            <far>100</far>
+          </clip>
+<!--
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+-->
+        </camera>
+        <plugin name="thermal_camera_controller" filename="libgazebo_ros_thermal_camera.so">
+          <robotNamespace>pioneer3at_ros</robotNamespace>
+          <alwaysOn>true</alwaysOn>
+          <updateRate>10</updateRate>
+          <imageTopicName>thermal_camera/image_raw</imageTopicName>
+          <cameraInfoTopicName>thermal_camera/camera_info</cameraInfoTopicName>
+          <frameName>thermal_optical_frame</frameName>
+          <interface:camera name="thermal_camera_iface" />
+        </plugin>
+      </sensor> -->
+<!-- CAMERA -->
       <sensor type="camera" name="camera_ros">
         <update_rate>20</update_rate>
         <camera name="camera_ros">

@@ -244,13 +244,14 @@
             <near>0.01</near>
             <far>100</far>
           </clip>
-<!--          <noise>
+<!--
+          <noise>
             <type>gaussian</type>
             <mean>0.0</mean>
             <stddev>0.007</stddev>
-          </noise>  -->
+          </noise>
+-->
         </camera>
-
         <plugin name="thermal_camera_controller" filename="libgazebo_ros_thermal_camera.so">
           <robotNamespace>pioneer2dx_ros</robotNamespace>
           <alwaysOn>true</alwaysOn>
@@ -258,13 +259,10 @@
           <imageTopicName>thermal_camera/image_raw</imageTopicName>
           <cameraInfoTopicName>thermal_camera/camera_info</cameraInfoTopicName>
           <frameName>thermal_optical_frame</frameName>
-<!--
           <interface:camera name="thermal_camera_iface" />
--->
         </plugin>
-
-      </sensor>
--->
+      </sensor> -->
+<!-- CAMERA -->
       <sensor type="camera" name="camera_ros">
         <update_rate>20</update_rate>
         <camera name="camera_ros">

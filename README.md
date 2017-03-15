@@ -6,6 +6,12 @@ A sample model.sdf of pioneer3at for using it in combination with ROS.
 Yes, the model.sdf is including gazebo_ros libraries.
 
 ## How to prepare to use this program  
+1. Install an(some) additional requiered software(s).  
+
+    $ sudo apt-get install ros-kinetic-hector-gazebo-thermal-camera  
+
+2. Build this package.  
+
     $ cd  
     $ git clone https://github.com/m-shimizu/p3at_for_ros_with_modelsdf  
     $ cd p3at_for_ros_with_modelsdf/src  
@@ -29,10 +35,6 @@ You need 2 terminals for spawning a robot and controlling the robot.
     $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/pioneer3at_ros/cmd_vel
 
 ## How to get an experience with a thermal camera  
-You need hector thermal camera package.  
-
-    $ sudo apt-get install ros-kinetic-hector-gazebo-thermal-camera  
-
 You need 2 terminals for spawning a robot and controlling the robot.
 
     Terminal 1(To spawn a robot):  
@@ -41,7 +43,6 @@ You need 2 terminals for spawning a robot and controlling the robot.
     $ source setup.bash  
     $ roslaunch gazebo_ros_sdf empty.launch world_name:=which_is_host.world  
     (pioneer2dx_ros will be spawned automatically)
-    (Currently the thermal camera is equipped on only pioneer2dx_ros)
     
     Terminal 2(Control the robot and watch the red boxes through the thermal camera):  
 
