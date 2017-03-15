@@ -28,7 +28,7 @@ You need 2 terminals for spawning a robot and controlling the robot.
     $ rostopic list
     $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/pioneer3at_ros/cmd_vel
 
-## How to get an experiment with a thermal camera  
+## How to get an experience with a thermal camera  
 You need hector thermal camera package.  
 
     $ sudo apt-get install ros-kinetic-hector-gazebo-thermal-camera  
