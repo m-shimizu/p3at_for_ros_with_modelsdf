@@ -252,10 +252,11 @@
         </camera>
 
         <plugin name="thermal_camera_controller" filename="libgazebo_ros_thermal_camera.so">
+          <robotNamespace>pioneer2dx_ros</robotNamespace>
           <alwaysOn>true</alwaysOn>
           <updateRate>10</updateRate>
-          <imageTopicName>/thermal_camera/image_raw</imageTopicName>
-          <cameraInfoTopicName>/thermal_camera/camera_info</cameraInfoTopicName>
+          <imageTopicName>thermal_camera/image_raw</imageTopicName>
+          <cameraInfoTopicName>thermal_camera/camera_info</cameraInfoTopicName>
           <frameName>thermal_optical_frame</frameName>
 <!--
           <interface:camera name="thermal_camera_iface" />
