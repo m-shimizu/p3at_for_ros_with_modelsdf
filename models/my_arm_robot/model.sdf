@@ -316,6 +316,7 @@
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
       <broadcastTF>true</broadcastTF>
+      <legacyMode>1</legacyMode>
     </plugin>
 
 <!-- Following 2lines were came from gazebosim gazebo_ros topic page.
