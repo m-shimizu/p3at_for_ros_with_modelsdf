@@ -61,7 +61,7 @@ You need 2 terminals for spawning a robot and controlling the robot.
 
     $ cd p3at_for_ros_with_modelsdf  
     $ source setup.bash  
-    $ roslaunch gazebo_ros_sdf empty.launch world_name:=which_is_hot.world  
+    $ roslaunch gazebo_ros_sdf empty.launch world:=where_is_hot.world  
     (pioneer2dx_ros will be spawned automatically)
     
     Terminal 2(Control the robot and watch the red boxes through the thermal camera):  

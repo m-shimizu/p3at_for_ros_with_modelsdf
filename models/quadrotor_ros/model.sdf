@@ -1,0 +1,79 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="quadrotor_ros">
+    <static>0</static>
+    <link name="base_link">
+      <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+      <inertial>
+        <mass>1.748</mass>
+        <pose>-9.2e-05 0.0 -0.01499 0 -0 0</pose>
+        <inertia>
+          <ixx>0.013931</ixx>
+          <ixy>0.0</ixy>
+          <ixz>4.78352e-07</ixz>
+          <iyy>0.0139566</iyy>
+          <iyz>2.09103e-17</iyz>
+          <izz>0.0219876</izz>
+        </inertia>
+      </inertial>
+      <visual name="quadrotor-base_link_visual">
+        <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://quadrotor_ros/quadrotor-base.dae</uri>
+            <scale>1.0 1.0 1.0</scale>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="quadrotor-base_link_visual">
+        <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://quadrotor_ros/quadrotor-base.stl</uri>
+            <scale>1.0 1.0 1.0</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="quadrotor-base_link_fixed_joint_lump__laser0_frame_visual_1">
+        <pose>0.0 0.0 -0.097 3.14158186032 -0.0 0.0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://quadrotor_ros/hokuyo_utm_30lx.dae</uri>
+            <scale>1.0 1.0 1.0</scale>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="quadrotor-base_link_fixed_joint_lump__laser0_frame_visual_1">
+        <pose>0.0 0.0 -0.097 3.14158186032 -0.0 0.0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://quadrotor_ros/hokuyo_utm_30lx.stl</uri>
+            <scale>1.0 1.0 1.0</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="quadrotor-base_link_fixed_joint_lump__sonar_link_visual_2">
+        <pose>-0.16 0.0 -0.012 3.14159 1.57079 3.14159</pose>
+        <geometry>
+          <mesh>
+            <uri>model://quadrotor_ros/max_sonar_ez4.dae</uri>
+            <scale>1.0 1.0 1.0</scale>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="quadrotor-base_link_fixed_joint_lump__sonar_link_visual_2">
+        <pose>-0.16 0.0 -0.012 3.14159 1.57079 3.14159</pose>
+        <geometry>
+          <mesh>
+            <uri>model://quadrotor_ros/max_sonar_ez4.dae</uri>
+            <scale>1.0 1.0 1.0</scale>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <plugin name='joint_trajectory_plugin' filename='libgazebo_ros_joint_pose_trajectory.so'>
+      <topicName>joint_trajectory</topicName>
+      <updateRate>1000.0</updateRate>
+    </plugin>
+  </model>
+</sdf>

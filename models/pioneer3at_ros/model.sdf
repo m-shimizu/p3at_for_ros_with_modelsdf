@@ -312,7 +312,7 @@
           </noise>
 -->
         </camera>
-        <plugin name="thermal_camera_controller" filename="libgazebo_ros_thermal_camera.so">
+        <plugin name="thermal_camera_controller" filename="libgazebo_ros_thermal_camera_pink.so">
           <robotNamespace>pioneer3at_ros</robotNamespace>
           <alwaysOn>true</alwaysOn>
           <updateRate>10</updateRate>
