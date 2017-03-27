@@ -19,7 +19,7 @@ Do followings:
     sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-latest.list'  
     wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -  
     sudo apt-get update  
-    sudo apt-get install -y cmake g++ protobuf-compiler libgazebo7 libgazebo7-dev ros-kinetic-desktop ros-kinetic-gazebo7-ros-pkgs ros-kinetic-gazebo7-ros-control ros-kinetic-ros-controllers ros-kinetic-image-view2 ros-kinetic-rqt ros-kinetic-rqt-common-plugins ros-kinetic-hector-mapping ros-kinetic-hector-geotiff ros-kinetic-joy ros-kinetic-teleop-twist-keyboard  
+    sudo apt-get install -y cmake g++ protobuf-compiler libgazebo7 libgazebo7-dev ros-kinetic-desktop ros-kinetic-gazebo-ros-pkgs ros-kinetic-gazebo-ros-control ros-kinetic-ros-controllers ros-kinetic-image-view2 ros-kinetic-rqt ros-kinetic-rqt-common-plugins ros-kinetic-hector-mapping ros-kinetic-hector-geotiff ros-kinetic-joy ros-kinetic-teleop-twist-keyboard  
     sudo rosdep init  
     rosdep update  
     sudo apt-get install -y python−rosinstall  
