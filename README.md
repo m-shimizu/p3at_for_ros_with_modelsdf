@@ -19,7 +19,7 @@ Do followings:
     sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-latest.list'  
     wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -  
     sudo apt-get update  
-    sudo apt-get install -y cmake g++ protobuf-compiler libgazebo7 libgazebo7-dev ros-kinetic-desktop ros-kinetic-gazebo-ros-pkgs ros-kinetic-gazebo-ros-control ros-kinetic-ros-controllers ros-kinetic-image-view2 ros-kinetic-rqt ros-kinetic-rqt-common-plugins ros-kinetic-hector-mapping ros-kinetic-hector-geotiff ros-kinetic-joy ros-kinetic-teleop-twist-keyboard  
+    sudo apt-get install -y cmake g++ protobuf-compiler libgazebo7 libgazebo7-dev ros-kinetic-desktop ros-kinetic-gazebo-ros-pkgs ros-kinetic-gazebo-ros-control ros-kinetic-ros-controllers ros-kinetic-image-view2 ros-kinetic-rqt ros-kinetic-rqt-common-plugins ros-kinetic-hector-mapping ros-kinetic-hector-geotiff ros-kinetic-joy ros-kinetic-teleop-twist-keyboard ros-kinetic-hector-pose-estimation ros-kinetic-hector-gazebo-plugins ros-kinetic-tf2-geometry-msgs ros-kinetic-hector-gazebo-worlds ros-kinetic-hector-sensors-description   
     sudo rosdep init  
     rosdep update  
     sudo apt-get install -y python−rosinstall  
@@ -64,10 +64,10 @@ You need 2 terminals for spawning a robot and controlling the robot.
     $ roslaunch gazebo_ros_sdf empty.launch world:=where_is_hot.world  
     (pioneer2dx_ros will be spawned automatically)
     
-    Terminal 2(Control the robot and watch the red boxes through the thermal camera):  
+    Terminal 2:  
 
     $ rostopic list
     $ rosrun image_view2 image_view2 image:=/pioneer2dx_ros/thermal_camera/image_raw &    
     $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/pioneer2dx_ros/cmd_vel
 
-UPDATED : 15/3/2017
+UPDATED : 28/3/2017
