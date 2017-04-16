@@ -18,13 +18,14 @@
     <arg name="robot_name" value="pioneer2dx_ros"/>
   </include>
 
-  <include file="$(find gazebo_ros_sdf)/launch/make_robot_description_and_call_state_publisher.launch">
+  <include file="$(find gazebo_ros_sdf)/launch/make_robot_description_and_call_state_publisher_quadrotor.launch">
     <arg name="robot_name" value="quadrotor_ros"/>
   </include>
 
   <include file="$(find gazebo_ros_sdf)/launch/make_robot_description_and_call_state_publisher.launch">
     <arg name="robot_name" value="my_arm_robot"/>
   </include>
+
 
   <!-- Launch gazebo -->
 

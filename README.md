@@ -39,8 +39,8 @@ Do followings:
     $ cd ..  
     $ catkin_make  
     
-## How to use this program  
-You need 2 terminals for spawning a robot and controlling the robot.
+## How to use a gound type robot    
+You need 2 terminals for spawning a robot and controlling the robot.  
 
     Terminal 1(To spawn a robot):  
 
@@ -53,6 +53,36 @@ You need 2 terminals for spawning a robot and controlling the robot.
 
     $ rostopic list
     $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/pioneer3at_ros/cmd_vel
+
+## How to fly with a quadrotor  
+You need 3 terminals for spawning a robot and controlling the robot.  
+
+    Terminal 1(To spawn a robot):  
+
+    $ cd p3at_for_ros_with_modelsdf  
+    $ source setup.bash  
+    $ roslaunch gazebo_ros_sdf empty.launch  
+    (Then spawn a robot "quadrotor_ros" from "INSERT TAB")
+    
+    Terminal 2(To control the robot):  
+
+    $ cd p3at_for_ros_with_modelsdf  
+    $ source setup.bash  
+    $ roslaunch hector_quadrotor_teleop buffalo_gamepad.launch robot:=quadrotor_ros  
+     (AND PUSH No.4 BUTTON TO START!!)  
+     (You can also use logitech_gamepad.launch or sony_dualshock3.launch or xbox_controller.launch, and you should read them to find whch button is for start.)  
+    
+    Terminal 3(To watch the camera view of the robot):  
+
+    $ cd p3at_for_ros_with_modelsdf  
+    $ source setup.bash  
+    $ rostopic list | grep quadrotor_ros | grep image
+    $ rosrun image_view2 image_view2 image:=/quadrotor_ros/camera_ros/image  
+## How to fly with a quadrotor  
+You need 2 terminals for spawning a robot and controlling the robot.  
+
+## How to get an experience with a thermal camera  
+You need 2 terminals for spawning a robot and controlling the robot.
 
 ## How to get an experience with a thermal camera  
 You need 2 terminals for spawning a robot and controlling the robot.
@@ -70,4 +100,4 @@ You need 2 terminals for spawning a robot and controlling the robot.
     $ rosrun image_view2 image_view2 image:=/pioneer2dx_ros/thermal_camera/image_raw &    
     $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/pioneer2dx_ros/cmd_vel
 
-UPDATED : 28/3/2017
+UPDATED : 16th Apr. 2017
