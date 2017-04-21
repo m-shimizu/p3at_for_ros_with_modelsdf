@@ -28,7 +28,7 @@ Do followings:
 ## How to prepare to use this program  
 1. Install an(some) additional requiered software(s).  
 
-    $ sudo apt-get install ros-kinetic-hector-gazebo-plugins ros-kinetic-tf2-geometry-msgs   
+    $ sudo apt-get install ros-kinetic-message-to-tf ros-kinetic-tf2-geometry-msgs ros-kinetic-hector-gazebo-plugins ros-kinetic-hector-sensors-description   
 
 2. Build this package.  
 
