@@ -28,7 +28,7 @@ Do followings:
 ## How to prepare to use this program  
 1. Install an(some) additional requiered software(s).  
 
-    $ sudo apt-get install ros-kinetic-hector-gazebo-thermal-camera  
+    $ sudo apt-get install ros-kinetic-hector-gazebo-plugins ros-kinetic-tf2-geometry-msgs   
 
 2. Build this package.  
 
