@@ -3,6 +3,7 @@
   <model name="quadrotor_ros">
     <static>0</static>
     <link name="base_link">
+      <audio_sink/>
       <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
       <inertial>
         <mass>1.748</mass>
