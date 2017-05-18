@@ -84,9 +84,6 @@ You need 2 terminals for spawning a robot and controlling the robot.
 ## How to get an experience with a thermal camera  
 You need 2 terminals for spawning a robot and controlling the robot.
 
-## How to get an experience with a thermal camera  
-You need 2 terminals for spawning a robot and controlling the robot.
-
     Terminal 1(To spawn a robot):  
 
     $ cd p3at_for_ros_with_modelsdf  
@@ -100,4 +97,23 @@ You need 2 terminals for spawning a robot and controlling the robot.
     $ rosrun image_view2 image_view2 image:=/pioneer2dx_ros/thermal_camera/image_raw &    
     $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/pioneer2dx_ros/cmd_vel
 
-UPDATED : 16th Apr. 2017
+## How to get a experience with sound  
+You need 2 terminals for spawning a robot and controlling the robot.
+
+    Terminal 1(To spawn a robot):  
+
+    $ cd p3at_for_ros_with_modelsdf  
+    $ source setup.bash  
+    $ roslaunch gazebo_ros_sdf empty.launch world:=where_is_victim.world  
+    (pioneer3at_ros will be spawned automatically)
+    
+    Terminal 2:  
+
+    $ rostopic list
+    $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/pioneer3at_ros/cmd_vel
+    (Which shell hide a victim? Search the victim by only her voice with pioneer3at_ros!)
+
+## How to get a experience with sound  
+You need 2 terminals for spawning a robot and controlling the robot.
+
+UPDATED : 18th May 2017
