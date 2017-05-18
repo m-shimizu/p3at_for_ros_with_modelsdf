@@ -97,7 +97,7 @@ You need 2 terminals for spawning a robot and controlling the robot.
     $ rosrun image_view2 image_view2 image:=/pioneer2dx_ros/thermal_camera/image_raw &    
     $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/pioneer2dx_ros/cmd_vel
 
-## How to get a experience with sound  
+## How to get an experience with sound  
 You need 2 terminals for spawning a robot and controlling the robot.
 
     Terminal 1(To spawn a robot):  
@@ -116,4 +116,4 @@ You need 2 terminals for spawning a robot and controlling the robot.
 ## How to get a experience with sound  
 You need 2 terminals for spawning a robot and controlling the robot.
 
-UPDATED : 18th May 2017
+UPDATED : 19th May 2017
