@@ -99,6 +99,7 @@ You need 2 terminals for spawning a robot and controlling the robot.
 
 ## How to get an experience with sound  
 You need 2 terminals for spawning a robot and controlling the robot.
+At first, you have to install a gazebo that has sound function. See [here](https://github.com/m-shimizu/p3at_for_ros_with_modelsdf/wiki/Installing_Gazebo7).
 
     Terminal 1(To spawn a robot):  
 
