@@ -117,4 +117,40 @@ At first, you have to install a gazebo that has sound function. See [here](https
 ## How to get a experience with sound  
 You need 2 terminals for spawning a robot and controlling the robot.
 
-UPDATED : 19th May 2017
+
+## How to separate a game server and your robot control client
+You have to do things following steps on two PCs. One PC(SERVER PC) is for the game server, another PC(CLIENT PC) is for your robot control client.  
+
+__[On each PC]__  
+  STEP.1: Synchronize two PC's clock.  
+  STEP.2: Let each PC know another PC hostname and IP address by editing /etc/hosts.  
+
+__[On the CLIENT PC]__  
+  STEP.3: Run next command on the CLIENT PC to give ROS master host information to ROS packages on the CLIENT PC.  
+
+    $ export ROS_MASTER_URL=https://<SERVER PC IP ADRESS>:11311  
+
+__[On the SERVER PC]__  
+  STEP.4: Spawn gazebo with empty.world. If you need, you can use another world. As you know, roscore is running on the SERVER PC.  
+
+    $ cd p3at_for_ros_with_modelsdf  
+    $ source setup.bash  
+    $ roslaunch gazebo_ros_sdf empty.launch world:=where_is_victim.world  
+
+__[On the CLIENT PC]__  
+  STEP.5: Run your robot control client software. For example, like a following line. You must hear sounds from gazebo on the SERVER PC.     
+
+    $ cd p3at_for_ros_with_modelsdf  
+    $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/pioneer3at_ros/cmd_vel
+    $ roslaunch audio_play play.launch ns:=gazebo  
+
+__-MEMO-__  
+(read this, if you are interested in sound transferring with ROS between two PCs)   
+In side of empty.launch, a capture.launch is calling to bring the SERVER PC's sound to  the CLIENT PC's ROS. A parameter "device" must to be set as "pulse" to capture "monitor of builtin sound" that gazebo output sound into.  
+
+    <include file="$(find audio_capture)/launch/capture.launch">  
+      <arg name="ns" value="gazebo"/>  
+      <arg name="device" value="pulse"/>  
+    </include>  
+
+UPDATED : 18th June 2017
