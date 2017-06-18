@@ -114,10 +114,6 @@ At first, you have to install a gazebo that has sound function. See [here](https
     $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/pioneer3at_ros/cmd_vel
     (Which shell hide a victim? Search the victim by only her voice with pioneer3at_ros!)
 
-## How to get a experience with sound  
-You need 2 terminals for spawning a robot and controlling the robot.
-
-
 ## How to separate a game server and your robot control client
 You have to do things following steps on two PCs. One PC(SERVER PC) is for the game server, another PC(CLIENT PC) is for your robot control client.  
 
