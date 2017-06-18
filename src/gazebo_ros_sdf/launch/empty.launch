@@ -36,6 +36,13 @@
   <node name="gazebo" pkg="gazebo_ros" type="gzserver" respawn="false" output="screen" args="$(find gazebo_ros_sdf)/worlds/$(arg world)"/>
   <node name="gazebo_gui" pkg="gazebo_ros" type="gzclient" respawn="false" output="screen"/>
 
+  <!-- Transfer sound to ROS -->
+
+  <include file="$(find audio_capture)/launch/capture.launch">
+    <arg name="ns" value="gazebo"/>
+    <arg name="device" value="pulse"/>
+  </include>
+
 </launch>
 
 
