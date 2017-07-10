@@ -1,9 +1,13 @@
-# p3at_for_ros_with_modelsdf
+# p3at\_for\_ros\_with\_modelsdf
 IF YOU DO NOT NEED TO VIEW YOUR ROBOT MODEL ON RVIZ, YOU CAN USE SDF FILES INSTEAD OF URDF FILES TO DESCRIBE YOUR ROBOT FOR GAZEBO.  
 YOU CAN CONTROL YOUR ROBOT IN GAZEBO FROM ROS WITH MODEL.SDF.
 YOU CAN GET 
 A sample model.sdf of pioneer3at for using it in combination with ROS.
-Yes, the model.sdf is including gazebo_ros libraries.
+Yes, the model.sdf is including gazebo\_ros libraries.
+
+## ROBOTS
+Pioneear3at\_ros and Pioneer2dx\_ros are imported from the gazebo models.  
+quadrotor\_ros and centaur_|_ros are imported from ![tu-darmstad](https://github.com/tu-darmstadt-ros-pkg/centaur_robot_tutorial).
 
 ## REQUIREMENT OF THIS REPOSITORY
 ### Install Ubuntu 16.04 LTS
