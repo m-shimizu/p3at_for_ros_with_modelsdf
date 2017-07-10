@@ -83,6 +83,7 @@ You need 3 terminals for spawning a robot and controlling the robot.
     $ source setup.bash  
     $ rostopic list | grep quadrotor_ros | grep image
     $ rosrun image_view2 image_view2 image:=/quadrotor_ros/camera_ros/image  
+    
 ## How to get an experience with a centaur robot
 You need 2 terminals for spawning a robot and controlling the robot.  
 
@@ -90,20 +91,17 @@ You need 2 terminals for spawning a robot and controlling the robot.
 
     $ cd p3at_for_ros_with_modelsdf  
     $ source setup.bash  
-    $ roslaunch gazebo_ros_sdf empty.launch world:=cenaur.world
-    (A centaur_ros model will be spawned and initialized in pose automatically)
+    $ roslaunch gazebo_ros_sdf empty.launch world:=centaur.world  
+    (A centaur_ros model will be spawned and initialized in pose automatically)  
     
     Terminal 2(To move the robot):  
 
-    $ rostopic list
-    $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/centaur_ros/cmd_vel_raw
+    $ rostopic list  
+    $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/centaur_ros/cmd_vel_raw  
     
-    To control other joints of the robot, use a trajectory controller that was opened with the gazebo.
-    You can use the trajectory controller heuristically.
-    Try it!
-
-## How to fly with a quadrotor  
-You need 3 terminals for spawning a robot and controlling the robot.  
+    To control other joints of the robot, use a rqt trajectory controller that was opened when the gazebo started.  
+    You can know how to use the rqt trajectory controller heuristically.  
+    Try it!  
 
 ## How to get an experience with a thermal camera  
 You need 2 terminals for spawning a robot and controlling the robot.
