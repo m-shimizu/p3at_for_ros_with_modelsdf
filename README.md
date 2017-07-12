@@ -103,6 +103,14 @@ You need 2 terminals for spawning a robot and controlling the robot.
     You can know how to use the rqt trajectory controller heuristically.  
     Try it!  
 
+## You can see all kinds of robot at once
+all_robots.world can show all kinds of robot.
+
+    $ cd p3at_for_ros_with_modelsdf  
+    $ source setup.bash  
+    $ roslaunch gazebo_ros_sdf empty.launch world:=all_robots.world  
+
+
 ## How to get an experience with a thermal camera  
 You need 2 terminals for spawning a robot and controlling the robot.
 
@@ -171,4 +179,4 @@ In side of empty.launch, a capture.launch is calling to bring the SERVER PC's so
       <arg name="device" value="pulse"/>  
     </include>  
 
-UPDATED : 11th July 2017
+UPDATED : 12th July 2017
