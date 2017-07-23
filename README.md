@@ -144,6 +144,13 @@ At first, you have to install a gazebo that has sound function. See [here](https
     $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/pioneer3at_ros/cmd_vel
     (Which shell hide a victim? Search the victim by only her voice with pioneer3at_ros!)
 
+## How to meet a moving hot victim  
+You need 1 terminal.
+
+    $ cd p3at_for_ros_with_modelsdf  
+    $ source setup.bash  
+    $ roslaunch gazebo_ros_sdf empty.launch world:=victim175.world  
+
 ## How to separate a game server and your robot control client
 You have to do things following steps on two PCs. One PC(SERVER PC) is for the game server, another PC(CLIENT PC) is for your robot control client.  
 
@@ -179,4 +186,4 @@ In side of empty.launch, a capture.launch is calling to bring the SERVER PC's so
       <arg name="device" value="pulse"/>  
     </include>  
 
-UPDATED : 12th July 2017
+UPDATED : 24th July 2017

@@ -164,5 +164,8 @@ catkin_package(
 #add_library(gazebo_ros_my_arm src/gazebo_ros_my_arm.cpp)
 #target_link_libraries(gazebo_ros_my_arm ${GAZEBO_LIBRARIES} ${catkin_LIBRARIES} ${Boost_LIBRARIES})
 
+add_library(set_joint_angle src/set_joint_angle.cpp)
+target_link_libraries(set_joint_angle ${GAZEBO_LIBRARIES} ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+
 add_executable(centaur_init_pose src/centaur_init_pose.cpp)
 target_link_libraries(centaur_init_pose ${GAZEBO_LIBRARIES} ${catkin_LIBRARIES} ${Boost_LIBRARIES})
