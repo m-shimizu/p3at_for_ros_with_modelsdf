@@ -15,6 +15,22 @@
   </include>
 
   <include file="$(find gazebo_ros_sdf)/launch/make_robot_description_and_call_state_publisher.launch">
+    <arg name="robot_name" value="pioneer3at_ros1"/>
+  </include>
+
+  <include file="$(find gazebo_ros_sdf)/launch/make_robot_description_and_call_state_publisher.launch">
+    <arg name="robot_name" value="pioneer3at_ros2"/>
+  </include>
+
+  <include file="$(find gazebo_ros_sdf)/launch/make_robot_description_and_call_state_publisher.launch">
+    <arg name="robot_name" value="pioneer3at_ros3"/>
+  </include>
+
+  <include file="$(find gazebo_ros_sdf)/launch/make_robot_description_and_call_state_publisher.launch">
+    <arg name="robot_name" value="pioneer3at_ros4"/>
+  </include>
+
+  <include file="$(find gazebo_ros_sdf)/launch/make_robot_description_and_call_state_publisher.launch">
     <arg name="robot_name" value="pioneer2dx_ros"/>
   </include>
 

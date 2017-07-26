@@ -151,7 +151,7 @@ You need 1 terminal.
     $ source setup.bash  
     $ roslaunch gazebo_ros_sdf empty.launch world:=victim175.world  
 
-## How to separate a game server and your robot control client
+## How to separate a game server and your robot control client with 4 robots
 You have to do things following steps on two PCs. One PC(SERVER PC) is for the game server, another PC(CLIENT PC) is for your robot control client.  
 
 __[On each PC]__  
@@ -168,13 +168,15 @@ __[On the SERVER PC]__
 
     $ cd p3at_for_ros_with_modelsdf  
     $ source setup.bash  
-    $ roslaunch gazebo_ros_sdf empty.launch world:=where_is_victim.world  
+    $ roslaunch gazebo_ros_sdf empty.launch world:=RC2016VRL_Final_RUN2_RETRY.world  
+     (4 robots will be automatically appeared as pioneer3at_ros1, pioneer3at_ros2, pioneer3at_ros3, pioneer3at_ros4)  
+     (Please run "rostopic list", you can find their topics)  
 
 __[On the CLIENT PC]__  
   STEP.5: Run your robot control client software. For example, like a following line. You must hear sounds from gazebo on the SERVER PC.     
 
     $ cd p3at_for_ros_with_modelsdf  
-    $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/pioneer3at_ros/cmd_vel
+    $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/pioneer3at_ros1/cmd_vel  
     $ roslaunch audio_play play.launch ns:=gazebo  
 
 __-MEMO-__  
@@ -186,4 +188,4 @@ In side of empty.launch, a capture.launch is calling to bring the SERVER PC's so
       <arg name="device" value="pulse"/>  
     </include>  
 
-UPDATED : 24th July 2017
+UPDATED : 26th July 2017
