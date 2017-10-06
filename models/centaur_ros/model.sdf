@@ -558,7 +558,6 @@
         </physics>
       </joint>
       <link name='neck_link'>
-        <audio_sink/>
         <pose frame=''>0 0 0.757 0 -0 0</pose>
         <inertial>
           <pose frame=''>0 0 0 0 -0 0</pose>
@@ -636,6 +635,7 @@
         </physics>
       </joint>
       <link name='head_link'>
+        <audio_sink/>
         <pose frame=''>0 0 0.757 0 -0 0</pose>
         <inertial>
           <pose frame=''>0.013 0 0.046 0 -0 0</pose>
