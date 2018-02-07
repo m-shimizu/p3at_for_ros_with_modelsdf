@@ -2,10 +2,23 @@
 <sdf version="1.5">
   <model name="victim175">
     <static>false</static>
-    <self_collide>true</self_collide>
+    <self_collide>false</self_collide>
 
     <link name="head">
       <pose>0 0 1.625 0 0 0</pose>
+<!-- ----------------------------------------- -->
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00175</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00175</iyy>
+          <iyz>0</iyz>
+          <izz>0.00175</izz>
+        </inertia>
+      </inertial>
+<!-- ----------------------------------------- -->
       <visual name="visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -80,6 +93,19 @@
     
     <link name="neck">
       <pose>0 0.02 1.49 0 0 0</pose>
+<!-- ----------------------------------------- -->
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00175</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00175</iyy>
+          <iyz>0</iyz>
+          <izz>0.00175</izz>
+        </inertia>
+      </inertial>
+<!-- ----------------------------------------- -->
       <visual name="visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -119,13 +145,26 @@
           <upper>+1.7</upper>
         </limit>
         <dynamics>
-          <friction>0.01</friction>
+          <friction>0.1</friction>
         </dynamics>
       </axis>
     </joint>
     
     <link name="body">
       <pose>0 0 1.255 0 0 0</pose>
+<!-- ----------------------------------------- -->
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00175</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00175</iyy>
+          <iyz>0</iyz>
+          <izz>0.00175</izz>
+        </inertia>
+      </inertial>
+<!-- ----------------------------------------- -->
       <visual name="visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -165,13 +204,26 @@
           <upper>1</upper>
         </limit>
         <dynamics>
-          <friction>0.01</friction>
+          <friction>0.1</friction>
         </dynamics>
       </axis>
     </joint>
     
     <link name="waist">
       <pose>0 0 1.005 0 0 0</pose>
+<!-- ----------------------------------------- -->
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00175</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00175</iyy>
+          <iyz>0</iyz>
+          <izz>0.00175</izz>
+        </inertia>
+      </inertial>
+<!-- ----------------------------------------- -->
       <visual name="visual">
         <pose>0 0 -0.025 0 0 0</pose>
         <geometry>
@@ -241,7 +293,7 @@
           <upper>0</upper>
         </limit>
         <dynamics>
-          <friction>0.01</friction>
+          <friction>0.1</friction>
         </dynamics>
       </axis>
 <!--      <axis2>
@@ -258,6 +310,19 @@
     
     <link name="rHand">
       <pose>-0.22 0 0.84 0 0 0</pose>
+<!-- ----------------------------------------- -->
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00175</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00175</iyy>
+          <iyz>0</iyz>
+          <izz>0.00175</izz>
+        </inertia>
+      </inertial>
+<!-- ----------------------------------------- -->
       <visual name="visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -314,6 +379,19 @@
 
     <link name="lHand">
       <pose>0.22 0 0.84 0 0 0</pose>
+<!-- ----------------------------------------- -->
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00175</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00175</iyy>
+          <iyz>0</iyz>
+          <izz>0.00175</izz>
+        </inertia>
+      </inertial>
+<!-- ----------------------------------------- -->
       <visual name="visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -370,6 +448,19 @@
 
     <link name="rFoot">
       <pose>-0.1 -0.095 0.02 0 0 0</pose>
+<!-- ----------------------------------------- -->
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00175</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00175</iyy>
+          <iyz>0</iyz>
+          <izz>0.00175</izz>
+        </inertia>
+      </inertial>
+<!-- ----------------------------------------- -->
       <visual name="visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -400,6 +491,19 @@
 
     <link name="lFoot">
       <pose>0.1 -0.095 0.02 0 0 0</pose>
+<!-- ----------------------------------------- -->
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00175</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00175</iyy>
+          <iyz>0</iyz>
+          <izz>0.00175</izz>
+        </inertia>
+      </inertial>
+<!-- ----------------------------------------- -->
       <visual name="visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -430,6 +534,19 @@
     
     <link name="rLeg2">
       <pose>-0.1 0 0.23 0 0 0</pose>
+<!-- ----------------------------------------- -->
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00175</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00175</iyy>
+          <iyz>0</iyz>
+          <izz>0.00175</izz>
+        </inertia>
+      </inertial>
+<!-- ----------------------------------------- -->
       <visual name="visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -486,6 +603,19 @@
     
     <link name="lLeg2">
       <pose>0.1 0 0.23 0 0 0</pose>
+<!-- ----------------------------------------- -->
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00175</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00175</iyy>
+          <iyz>0</iyz>
+          <izz>0.00175</izz>
+        </inertia>
+      </inertial>
+<!-- ----------------------------------------- -->
       <visual name="visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -555,7 +685,7 @@
           <upper>0</upper>
         </limit>
         <dynamics>
-          <friction>0.01</friction>
+          <friction>0.1</friction>
         </dynamics>
       </axis>
     </joint>
@@ -575,13 +705,26 @@
           <upper>0</upper>
         </limit>
         <dynamics>
-          <friction>0.01</friction>
+          <friction>0.1</friction>
         </dynamics>
       </axis>
     </joint>
     
     <link name="rLeg1">
       <pose>-0.1 0 0.66 0 0 0</pose>
+<!-- ----------------------------------------- -->
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00175</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00175</iyy>
+          <iyz>0</iyz>
+          <izz>0.00175</izz>
+        </inertia>
+      </inertial>
+<!-- ----------------------------------------- -->
       <visual name="visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -664,6 +807,19 @@
     
     <link name="lLeg1">
       <pose>0.1 0 0.66 0 0 0</pose>
+<!-- ----------------------------------------- -->
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00175</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00175</iyy>
+          <iyz>0</iyz>
+          <izz>0.00175</izz>
+        </inertia>
+      </inertial>
+<!-- ----------------------------------------- -->
       <visual name="visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -759,7 +915,7 @@
           <upper>0</upper>
         </limit>
         <dynamics>
-          <friction>0.01</friction>
+          <friction>0.1</friction>
         </dynamics>
       </axis>
     </joint>
@@ -779,13 +935,26 @@
           <upper>0</upper>
         </limit>
         <dynamics>
-          <friction>0.01</friction>
+          <friction>0.1</friction>
         </dynamics>
       </axis>
     </joint>
     
     <link name="rButt">
       <pose>-0.1 0 0.9275 0 0 0</pose>
+<!-- ----------------------------------------- -->
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00175</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00175</iyy>
+          <iyz>0</iyz>
+          <izz>0.00175</izz>
+        </inertia>
+      </inertial>
+<!-- ----------------------------------------- -->
       <visual name="visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -816,6 +985,19 @@
     
     <link name="lButt">
       <pose>0.1 0 0.9275 0 0 0</pose>
+<!-- ----------------------------------------- -->
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00175</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00175</iyy>
+          <iyz>0</iyz>
+          <izz>0.00175</izz>
+        </inertia>
+      </inertial>
+<!-- ----------------------------------------- -->
       <visual name="visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -859,7 +1041,7 @@
           <upper>0</upper>
         </limit>
         <dynamics>
-          <friction>0.01</friction>
+          <friction>0.1</friction>
         </dynamics>
       </axis>
     </joint>
@@ -879,7 +1061,7 @@
           <upper>0</upper>
         </limit>
         <dynamics>
-          <friction>0.01</friction>
+          <friction>0.1</friction>
         </dynamics>
       </axis>
     </joint>
@@ -891,11 +1073,15 @@
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
+<!--
           <lower>-1</lower>
           <upper>+1</upper>
+-->
+          <lower>0</lower>
+          <upper>0</upper>
         </limit>
         <dynamics>
-          <friction>0.01</friction>
+          <friction>0.1</friction>
         </dynamics>
       </axis>
     </joint>
@@ -907,17 +1093,34 @@
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
+<!--
           <lower>-1</lower>
           <upper>+1</upper>
+-->
+          <lower>0</lower>
+          <upper>0</upper>
         </limit>
         <dynamics>
-          <friction>0.01</friction>
+          <friction>0.1</friction>
         </dynamics>
       </axis>
     </joint>
 
     <link name="rShoulder">
       <pose>-0.195 0 1.4 0 0 0</pose>
+<!-- ----------------------------------------- -->
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00175</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00175</iyy>
+          <iyz>0</iyz>
+          <izz>0.00175</izz>
+        </inertia>
+      </inertial>
+<!-- ----------------------------------------- -->
       <visual name="visual">
         <pose>0 0 0 0 1.570796326794897 0</pose>
         <geometry>
@@ -948,6 +1151,19 @@
     
     <link name="lShoulder">
       <pose>0.195 0 1.4 0 0 0</pose>
+<!-- ----------------------------------------- -->
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00175</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00175</iyy>
+          <iyz>0</iyz>
+          <izz>0.00175</izz>
+        </inertia>
+      </inertial>
+<!-- ----------------------------------------- -->
       <visual name="visual">
         <pose>0 0 0 0 1.570796326794897 0</pose>
         <geometry>
@@ -987,7 +1203,7 @@
           <upper>+3.2</upper>
         </limit>
         <dynamics>
-          <friction>0.01</friction>
+          <friction>0.1</friction>
         </dynamics>
       </axis>
     </joint>
@@ -999,17 +1215,34 @@
       <axis>
         <xyz>1 0 0</xyz>
         <limit>
+<!--
           <lower>-1.570796326794897</lower>
           <upper>+3.2</upper>
+-->
+          <lower>0</lower>
+          <upper>0</upper>
         </limit>
         <dynamics>
-          <friction>0.01</friction>
+          <friction>0.1</friction>
         </dynamics>
       </axis>
     </joint>
     
     <link name="rArm1U">
       <pose>-0.22 0 1.3375 0 0 0</pose>
+<!-- ----------------------------------------- -->
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00175</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00175</iyy>
+          <iyz>0</iyz>
+          <izz>0.00175</izz>
+        </inertia>
+      </inertial>
+<!-- ----------------------------------------- -->
       <visual name="visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -1066,6 +1299,19 @@
     
     <link name="rArm1L">
       <pose>-0.22 0 1.2125 0 0 0</pose>
+<!-- ----------------------------------------- -->
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00175</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00175</iyy>
+          <iyz>0</iyz>
+          <izz>0.00175</izz>
+        </inertia>
+      </inertial>
+<!-- ----------------------------------------- -->
       <visual name="visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -1131,13 +1377,26 @@
           <upper>+1.570796326794897</upper>
         </limit>
         <dynamics>
-          <friction>0.01</friction>
+          <friction>0.1</friction>
         </dynamics>
       </axis>
     </joint>
     
     <link name="lArm1U">
       <pose>0.22 0 1.3375 0 0 0</pose>
+<!-- ----------------------------------------- -->
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00175</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00175</iyy>
+          <iyz>0</iyz>
+          <izz>0.00175</izz>
+        </inertia>
+      </inertial>
+<!-- ----------------------------------------- -->
       <visual name="visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -1194,6 +1453,19 @@
     
     <link name="lArm1L">
       <pose>0.22 0 1.2125 0 0 0</pose>
+<!-- ----------------------------------------- -->
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00175</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00175</iyy>
+          <iyz>0</iyz>
+          <izz>0.00175</izz>
+        </inertia>
+      </inertial>
+<!-- ----------------------------------------- -->
       <visual name="visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -1259,7 +1531,7 @@
           <upper>+1.570796326794897</upper>
         </limit>
         <dynamics>
-          <friction>0.01</friction>
+          <friction>0.1</friction>
         </dynamics>
       </axis>
     </joint>
@@ -1275,7 +1547,7 @@
           <upper>+3.2</upper>
         </limit>
         <dynamics>
-          <friction>0.01</friction>
+          <friction>0.1</friction>
         </dynamics>
       </axis>
     </joint>
@@ -1287,17 +1559,34 @@
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
+<!--
           <lower>-1.570796326794897</lower>
           <upper>+3.2</upper>
+-->
+          <lower>0</lower>
+          <upper>0</upper>
         </limit>
         <dynamics>
-          <friction>0.01</friction>
+          <friction>0.1</friction>
         </dynamics>
       </axis>
     </joint>
     
     <link name="rArm2U">
       <pose>-0.22 0 1.095 0 0 0</pose>
+<!-- ----------------------------------------- -->
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00175</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00175</iyy>
+          <iyz>0</iyz>
+          <izz>0.00175</izz>
+        </inertia>
+      </inertial>
+<!-- ----------------------------------------- -->
       <visual name="visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -1328,6 +1617,19 @@
     
     <link name="rArm2L">
       <pose>-0.22 0 0.985 0 0 0</pose>
+<!-- ----------------------------------------- -->
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00175</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00175</iyy>
+          <iyz>0</iyz>
+          <izz>0.00175</izz>
+        </inertia>
+      </inertial>
+<!-- ----------------------------------------- -->
       <visual name="visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -1393,13 +1695,26 @@
           <upper>+1.570796326794897</upper>
         </limit>
         <dynamics>
-          <friction>0.01</friction>
+          <friction>0.1</friction>
         </dynamics>
       </axis>
     </joint>
     
     <link name="lArm2U">
       <pose>0.22 0 1.095 0 0 0</pose>
+<!-- ----------------------------------------- -->
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00175</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00175</iyy>
+          <iyz>0</iyz>
+          <izz>0.00175</izz>
+        </inertia>
+      </inertial>
+<!-- ----------------------------------------- -->
       <visual name="visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -1430,6 +1745,19 @@
     
     <link name="lArm2L">
       <pose>0.22 0 0.985 0 0 0</pose>
+<!-- ----------------------------------------- -->
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00175</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00175</iyy>
+          <iyz>0</iyz>
+          <izz>0.00175</izz>
+        </inertia>
+      </inertial>
+<!-- ----------------------------------------- -->
       <visual name="visual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -1491,11 +1819,15 @@
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
+<!--
           <lower>-1.570796326794897</lower>
           <upper>+1.570796326794897</upper>
+-->
+          <lower>0</lower>
+          <upper>0</upper>
         </limit>
         <dynamics>
-          <friction>0.01</friction>
+          <friction>0.1</friction>
         </dynamics>
       </axis>
     </joint>
@@ -1511,7 +1843,7 @@
           <upper>2.8</upper>
         </limit>
         <dynamics>
-          <friction>0.01</friction>
+          <friction>0.1</friction>
         </dynamics>
       </axis>
     </joint>
@@ -1523,11 +1855,15 @@
       <axis>
         <xyz>-1 0 0</xyz>
         <limit>
+<!--
           <lower>0</lower>
           <upper>2.8</upper>
+-->
+          <lower>0</lower>
+          <upper>0</upper>
         </limit>
         <dynamics>
-          <friction>0.01</friction>
+          <friction>0.1</friction>
         </dynamics>
       </axis>
     </joint>
@@ -1543,7 +1879,7 @@
           <upper>1.4</upper>
         </limit>
         <dynamics>
-          <friction>0.01</friction>
+          <friction>0.1</friction>
         </dynamics>
       </axis>
     </joint>
@@ -1555,11 +1891,15 @@
       <axis>
         <xyz>-1 0 0</xyz>
         <limit>
+<!--
           <lower>-1.57</lower>
           <upper>1.4</upper>
+-->
+          <lower>0</lower>
+          <upper>0</upper>
         </limit>
         <dynamics>
-          <friction>0.01</friction>
+          <friction>0.1</friction>
         </dynamics>
       </axis>
     </joint>
@@ -1591,12 +1931,14 @@
       </axis>
     </joint>
 
+
     <plugin name="setJointAngle" filename="libset_joint_angle.so">
       <robotNamespace>victim175</robotNamespace>
       <alwaysOn>true</alwaysOn>
       <updateRate>100.0</updateRate>
       <angleName0>neck_head</angleName0>
       <angleName1>body_neck</angleName1>
+<!--
       <angleName2>body_waist</angleName2>
       <angleName3>rLeg2_rFoot</angleName3>
       <angleName4>lLeg2_lFoot</angleName4>
@@ -1606,18 +1948,20 @@
       <angleName8>lButt_lLeg1</angleName8>
       <angleName9>waist_rButt</angleName9>
       <angleName10>waist_lButt</angleName10>
-      <angleName11>body_rShoulder</angleName11>
       <angleName12>body_lShoulder</angleName12>
-      <angleName13>rArm1U_rArm1L</angleName13>
       <angleName14>lArm1U_lArm1L</angleName14>
-      <angleName15>rShoulder_rArm1</angleName15>
       <angleName16>lShoulder_lArm1</angleName16>
-      <angleName17>rArm2U_rArm2L</angleName17>
       <angleName18>lArm2U_lArm2L</angleName18>
-      <angleName19>rArm1_rArm2</angleName19>
       <angleName20>lArm1_lArm2</angleName20>
-      <angleName21>rArm2_rHand</angleName21>
       <angleName22>lArm2_lHand</angleName22>
+-->
+      <angleName11>body_rShoulder</angleName11>
+      <angleName13>rArm1U_rArm1L</angleName13>
+      <angleName15>rShoulder_rArm1</angleName15>
+      <angleName17>rArm2U_rArm2L</angleName17>
+      <angleName19>rArm1_rArm2</angleName19>
+      <angleName21>rArm2_rHand</angleName21>
+
       <maxAngles>23</maxAngles>
       <neck_head>10</neck_head>
       <body_neck>0.0</body_neck>
@@ -1646,6 +1990,7 @@
       <moveJoint>13</moveJoint>
       <moveAngleWidth>30</moveAngleWidth>
     </plugin>
+    
   </model>
 </sdf>
 

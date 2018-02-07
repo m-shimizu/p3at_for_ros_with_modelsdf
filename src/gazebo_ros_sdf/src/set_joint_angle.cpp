@@ -172,11 +172,17 @@ void setJointAngle::Load ( physics::ModelPtr _parent, sdf::ElementPtr _sdf )
   for(int i=0; i < maxAngles; i++)
   {
     getParameter_string(angleNames[i], angleTagName[i], "");
-    getParameter_double(targetAngles[i], angleNames[i].c_str(), (double)0.0 );
-    joints[i] = parent->GetJoint(angleNames[i].c_str());
+    getParameter_double(targetAngles[i], angleNames[i].c_str(), (double)0.0);
+    if(0<angleNames[i].size())
+      joints[i] = parent->GetJoint(angleNames[i].c_str());
+    else
+    {
+      joints[i] = 0;
+      std::cout << "Error getting joint name: " << angleTagName[i] << "\n";
+    }
 /*  
     gazebo_ros_->getParameter<std::string> ( angleNames[i], angleTagName[i], "" );
-    gazebo_ros_->getParameter<double> ( targetAngles[i], angleNames[i].c_str(), (double)0.0 );
+    gazebo_ros_->getParameter<double> ( targetAngles[i], angleNames[i].c_str(), (double)0.0);
     joints[i] = gazebo_ros_->getJoint ( parent, angleTagName[i], "" );
 */
     if(0!=angleNames[i].size() && 0==joints[i])
@@ -187,7 +193,7 @@ void setJointAngle::Load ( physics::ModelPtr _parent, sdf::ElementPtr _sdf )
 
   // listen to the update event (broadcast every simulation iteration)
   this->update_connection_ =
-    event::Events::ConnectWorldUpdateBegin ( boost::bind ( &setJointAngle::UpdateChild, this ) );
+    event::Events::ConnectWorldUpdateBegin(boost::bind(&setJointAngle::UpdateChild, this));
 /*
   alive_ = true;
 
@@ -228,7 +234,7 @@ void setJointAngle::Reset()
 
 void setJointAngle::PID_Control(void)
 {
-  double angleMonitor, angleTarget, order, w = (2*M_PI/2);
+  double angleMonitor, angleTarget, order, w = (2*M_PI);
   for(int i = 0 ; i < maxAngles; i++)
   {
     if(0==joints[i])
@@ -236,15 +242,22 @@ void setJointAngle::PID_Control(void)
     angleMonitor = joints[i]->GetAngle(0).Radian();
   // printf("Monitor Angle[%d] : %f\n", i, joints_[i]->GetAngle(0).Degree());
 
-  // You can use velocity control. NO EFFORT CONTROL
-    angleTarget = targetAngles[i] / 180 * M_PI;
+    angleTarget = targetAngles[i]/180*M_PI;
     if(0!=moveFlag && moveJoint==i)
-      angleTarget = moveAngleWidth / 180 * M_PI * sin(w * parent->GetWorld()->GetSimTime().Double());
-    order = -2 * (angleMonitor - angleTarget);
+      angleTarget = moveAngleWidth/180*M_PI * sin(w*parent->GetWorld()->GetSimTime().Double());
 
     parent->GetJointController()->SetVelocityPID(
-        joints[i]->GetScopedName(), common::PID(0.1, 0, 0));
+      joints[i]->GetScopedName(), common::PID(0.4, 1, 0.005));
+    order = -1000 * (angleMonitor - angleTarget);
+    joints[i]->SetForce(0, order);
+    parent->GetJointController()->SetPositionTarget(
+      joints[i]->GetScopedName(), angleTarget); 
+/* Velocity control version (not good)
+    parent->GetJointController()->SetVelocityPID(
+      joints[i]->GetScopedName(), common::PID(0.1, 0, 0));
+    order = -0.1 * (angleMonitor - angleTarget);
     joints[i]->SetVelocity(0, order);
+*/
   }
 }
 
@@ -318,7 +331,7 @@ void  setJointAngle::check_key_command(void)
 // Update the controller
 void setJointAngle::UpdateChild()
 {
-  check_key_command();
+//  check_key_command();
   PID_Control();
 }
 
